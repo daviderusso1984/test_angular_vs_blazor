@@ -1,0 +1,37 @@
+﻿@page "/"
+
+
+ <input type="text" id="fname" @bind="val" name="fname">
+<h3>Risultato è</h3>
+<h1>@txt</h1>
+
+
+<button @onclick="click" >Premi per il test</button>
+
+
+@code{
+
+    public int txt = 0;
+
+    public int val = 40;
+
+
+    public void click(){
+        txt = 0;
+        txt = fib(val);
+    }
+
+    public int fib(int i) {
+    if(i <= 2) {
+        // Base case of the recursive function.
+        // i is either 1 or 2, whose associated Fibonacci sequence numbers are 1 and 1.
+        return 1;
+    }
+    // Recursive case. Return the sum of the two previous Fibonacci numbers.
+    // This works because the definition of the Fibonacci sequence specifies
+    // that the sum of two adjacent elements equals the next element.
+    return  fib(i - 2) + fib(i - 1);
+    
+}
+
+}
